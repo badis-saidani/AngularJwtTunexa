@@ -1,13 +1,18 @@
 {
   "name": "tunexa",
   "version": "0.0.0",
+  "engines": {
+    "node": "v10.16.3",
+    "npm": "6.14.4"
+  },
   "scripts": {
     "ng": "ng",
-    "start": "npm start --proxy-config proxy.conf.json",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --output-path tunexa  --aot --prod"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +33,7 @@
     "ngx-perfect-scrollbar": "^7.2.1",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.4.0",
+    "typescript": "~2.7.2",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
