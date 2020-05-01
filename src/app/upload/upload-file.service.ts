@@ -9,8 +9,8 @@ import { fileModel } from '../models/file-model';
 })
 export class UploadFileService {
 
-  //urlbase = 'http://localhost:8080/api';
-  urlbase = '/api';
+  private urlbase = window["cfgApiBaseUrl"] + "/api";
+
   constructor(private http: HttpClient) {}
 
   getFiles(): Observable<any> {

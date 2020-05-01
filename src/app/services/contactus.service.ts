@@ -8,8 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ContactusService {
 
-  //private baseUrl = 'http://localhost:8080/api';
-  private baseUrl = '/api';
+  private baseUrl = window["cfgApiBaseUrl"] + "/api";
 
   private ALL_ATELIER_URL = this.baseUrl + '/contactuses';
   private SAVE_UPDATE_ATELIER_URL = this.baseUrl + '/allowed/contactus/';

@@ -7,8 +7,7 @@ import { Category } from '../models/category';
   providedIn: 'root'
 })
 export class CategoryService {
-  //private baseUrl = 'http://localhost:8080/api';
-  private baseUrl = '/api';
+  private baseUrl = window["cfgApiBaseUrl"] + "/api";
   
   private ALL_ATELIER_URL = this.baseUrl + '/categories';
   private ALL_ALLOWED_URL = this.baseUrl + '/allowed/categories';

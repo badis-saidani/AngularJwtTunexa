@@ -7,8 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  //private baseUrl = 'http://localhost:8080/api';
-  private baseUrl = '/api';
+  private baseUrl = window["cfgApiBaseUrl"] + "/api";
 
   private userUrl = this.baseUrl+'/test/user';
   private adminUrl = this.baseUrl+'/api/test/admin';

@@ -8,8 +8,7 @@ import { Product } from '../models/product';
 })
 export class ProductService {
 
-  //private baseUrl = 'http://localhost:8080/api';
-  private baseUrl = '/api';
+  private baseUrl = window["cfgApiBaseUrl"] + "/api";
 
   private ALL_ATELIER_URL = this.baseUrl + '/products';
   private ALLOWED_ATELIER_URL = this.baseUrl + '/allowed/products';

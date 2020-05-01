@@ -8,8 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class DevisService {
 
- //private baseUrl = 'http://localhost:8080/api';
- private baseUrl = '/api';
+  private baseUrl = window["cfgApiBaseUrl"] + "/api";
 
   private ALL_ATELIER_URL = this.baseUrl + '/devises';
   private SAVE_UPDATE_ATELIER_URL = this.baseUrl + '/allowed/devis/';
