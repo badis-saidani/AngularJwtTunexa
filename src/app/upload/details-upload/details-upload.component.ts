@@ -16,6 +16,7 @@ export class DetailsUploadComponent implements OnInit {
 
   info: string;
   result: any;
+  baseUrl = window["cfgApiBaseUrl"] + "/api";
 
   constructor(private downService: UploadFileService) {}
 

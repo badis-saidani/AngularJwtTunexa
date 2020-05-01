@@ -26,6 +26,8 @@ export class DetailProductComponent implements OnInit {
   toBeUpdated = false;
   errorMessage = '';
 
+  baseUrl = window["cfgApiBaseUrl"] + "/api";
+
   constructor(private devisService: DevisService, private prodService: ProductService,
      private route: ActivatedRoute) { }
 

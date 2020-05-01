@@ -22,7 +22,7 @@ export class ProductsComponent implements OnInit {
   devis: Devis = new Devis();
 
   form: any = {};
-
+  baseUrl = window["cfgApiBaseUrl"] + "/api";
 
 
   isSaveFailed = false;
@@ -51,14 +51,18 @@ export class ProductsComponent implements OnInit {
         switchMap((params: ParamMap) =>
           this.prodService.getAllowedProductsByCat(params.get('id')))
       );
-
+      this.notifier.notify('info','       loading data, wait please .....     ');
       this.products$.subscribe(
         res => {
          this.products = res;
          this.notifier.notify( 'success', 'data successfully loaded.' );
+         this.notifier.hideOldest();
+        this.notifier.hideNewest();
         },
         err => {
         this.notifier.notify( 'error', 'Whoops, something went wrong while loading products.' );
+        this.notifier.hideOldest();
+        this.notifier.hideNewest();
         }
       );
       
@@ -71,16 +75,20 @@ export class ProductsComponent implements OnInit {
   }
 
   onSubmit() {
+    this.notifier.notify('info','       Sending, wait please .....     ');
       this.devis.productId = this.product.id;
       this.devisService.postDevis(this.devis).subscribe(
         res => {
+          this.notifier.hideNewest();
           this.reloadPage();
         },
         err => {
           console.log(err);
           this.errorMessage = err.error.message;
-
-          alert('An error occurred while saving the devis');
+          
+          this.notifier.notify('error','An error occurred while saving the devis');
+          this.notifier.hideOldest();
+          this.notifier.hideNewest();
         }
       );
 
@@ -97,10 +105,14 @@ export class ProductsComponent implements OnInit {
       res => {
         this.products = res;
         this.notifier.notify( 'success', 'data successfully loaded.' );
+        this.notifier.hideOldest();
+        this.notifier.hideNewest();
       },
       err => {
         console.log('Error occurred while downloading the list of products;');
-    	this.notifier.notify( 'error', 'Whoops, something went wrong while loading products.' );
+      this.notifier.notify( 'error', 'Whoops, something went wrong while loading products.' );
+      this.notifier.hideOldest();
+        this.notifier.hideNewest();
         
     }
     );
@@ -112,10 +124,14 @@ export class ProductsComponent implements OnInit {
       res => {
         this.products = res;
         this.notifier.notify( 'success', 'data successfully loaded.' );
+        this.notifier.hideOldest();
+        this.notifier.hideNewest();
       },
       err => {
         console.log('Error occurred while downloading the list of products;');
-    	this.notifier.notify( 'error', 'Whoops, something went wrong while loading products.' );
+        this.notifier.notify( 'error', 'Whoops, something went wrong while loading products.' );
+        this.notifier.hideOldest();
+        this.notifier.hideNewest();
         
     }
     );

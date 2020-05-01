@@ -46,7 +46,7 @@ const customNotifierOptions: NotifierOptions = {
 	},
   theme: 'material',
   behaviour: {
-    autoHide: 10000,
+    autoHide: false,
     onClick: 'hide',
     onMouseover: 'pauseAutoHide',
     showDismissButton: true,
