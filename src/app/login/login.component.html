@@ -1,0 +1,61 @@
+<div *ngIf="isLoggedIn; else loggedOut">Welcome to Espace Amdin.</div>
+
+<ng-template #loggedOut>
+
+
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-t-85 p-b-20">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate class="login100-form validate-form">
+          <span class="login100-form-title p-b-70">
+            Welcome
+          </span>
+          <span class="login100-form-avatar">
+            <img src="../../assets/img/logo.png" alt="logo-gto" />
+          </span>
+
+          <div
+            class="wrap-input100 validate-input m-t-85 m-b-35"
+            data-validate="Enter username"
+          >
+            <span class="focus-input100" data-placeholder="Username"></span
+            ><br />
+            <input class="input100" type="text" name="username" name="username" [(ngModel)]="form.username" #username="ngModel"
+            required />
+            <div *ngIf="f.submitted && username.invalid">
+                <div class="alert alert-danger" *ngIf="username.errors.required">Username is required </div>
+              </div>
+          </div>
+
+          <div
+            class="wrap-input100 validate-input m-b-50"
+            data-validate="Enter password"
+          >
+            <span class="focus-input100" data-placeholder="Password"></span
+            ><br />
+            <input class="input100" type="password" name="password" [(ngModel)]="form.password" #password="ngModel"
+            required minlength="6" />
+          <div *ngIf="f.submitted && password.invalid">
+            <div class="alert alert-danger" *ngIf="password.errors.required">Password is required</div>
+            <div class="alert alert-danger" *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+          </div>
+
+          <div class="container-login100-form-btn">
+            <button class="login100-form-btn">
+              Login
+            </button>
+            <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+                Login failed: {{errorMessage}}
+              </div>
+          </div>
+
+          <ul class="login-more p-t-190">
+
+
+          </ul>
+        </form>
+      </div>
+    </div>
+  </div>
+</ng-template>

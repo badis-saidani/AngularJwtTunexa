@@ -1,0 +1,138 @@
+
+
+    <div *ngIf="!authority">
+        <app-login></app-login>
+      </div>
+
+      <section>
+  <!-- HEADER -->
+  <header>
+      <!-- top Header -->
+      <div id="top-header">
+        <div class="container">
+          <div class="pull-left">
+            <!-- <span>{{this.info.token}}</span> -->
+          </div>
+
+        </div>
+      </div>
+      <!-- /top Header -->
+
+    </header>
+    <!-- /HEADER -->
+
+
+       <!-- header -->
+       <div id="header">
+          <div class="container">
+            <div class="pull-left">
+              <!-- Logo -->
+              <div class="header-logo">
+                <a class="logo" href="#">
+                  <img src="assets/img/logo.png" alt="">
+                </a>
+              </div>
+              <!-- /Logo -->
+
+
+            </div>
+            <div class="pull-right">
+                <ul class="header-btns">
+                  <!-- Account -->
+                  <li class="header-account dropdown default-dropdown">
+                    <div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
+                      <div class="header-btns-icon">
+                        <i class="fa fa-user-o"></i>
+                      </div>
+                      <strong class="text-uppercase">Badis Saidani <i class="fa fa-caret-down"></i></strong>
+                    </div>
+                    - <a  class="text-uppercase">Admin</a> -
+                    <ul class="custom-menu">
+
+                      <li><a href="#" (click)="logout()"><i class="fa fa-unlock-alt"></i> Log Out</a></li>
+
+                    </ul>
+                  </li>
+                  <!-- /Account -->
+                </ul>
+              </div>
+
+
+
+                <!-- Mobile nav toggle-->
+                <ul>
+                <li class="nav-toggle">
+                  <button class="nav-toggle-btn main-btn icon-btn" (click)="openNavBar()"><i class="fa fa-bars"></i></button>
+                </li>
+                <!-- / Mobile nav toggle -->
+              </ul>
+            </div>
+
+<!-- start -->
+
+
+<!-- end -->
+
+</div>
+          <!-- header -->
+
+        <!-- container -->
+
+
+      <!-- NAVIGATION -->
+      <div id="navigation" [ngClass]="{'shadow': isTrue}">
+        <!-- container -->
+        <div class="container">
+          <div id="responsive-nav" [ngClass]="{'open': isTrue}">
+            <!-- category nav -->
+            <div class="category-nav show-on-click">
+              <span class="category-header" (click)="closeNavBar()">Menu <i class="fa fa-list"></i></span>
+              <ul class="category-list open">
+                <li class="dropdown side-dropdown">
+                  <a (click)="turnToInbox()" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                     <span><i class="fa fa-inbox"></i></span> Inbox <i class="fa fa-angle-right"></i></a>
+
+                </li>
+                <!-- <li><a href="#">Dattes</a></li> -->
+                <li class="dropdown side-dropdown">
+                  <a (click)="turnToDevis()" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                      <span><i class="fa fa-pencil-square-o"></i></span> Devis <i class="fa fa-angle-right"></i></a>
+
+                </li>
+                <li class="dropdown side-dropdown">
+                  <a (click)="turnToCategories()" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                      <span><i class="fa fa-list"></i></span> Categories <i class="fa fa-angle-right"></i></a>
+
+                </li>
+                <li class="dropdown side-dropdown">
+                    <a (click)="turnToProducts()" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                        <span><i class="fa fa-cube"></i></span> Products <i class="fa fa-angle-right"></i></a>
+
+                  </li>
+
+              </ul>
+            </div>
+            <!-- /category nav -->
+
+            <!-- menu nav -->
+            <div class="menu-nav">
+              <span class="menu-header">Menu <i class="fa fa-bars"></i></span>
+
+            </div>
+            <!-- menu nav -->
+          </div>
+        </div>
+        <!-- /container -->
+      </div>
+      <!-- /NAVIGATION -->
+      <app-inbox *ngIf="toInbox" ></app-inbox>
+      <app-devis *ngIf="toDevis" ></app-devis>
+      <app-categories *ngIf="toCategories" ></app-categories>
+      <app-product-management *ngIf="toProducts" ></app-product-management>
+      <!-- CONTENT -->
+
+      <!-- <router-outlet></router-outlet> -->
+
+      <!-- /CONTENT  -->
+
+</section>

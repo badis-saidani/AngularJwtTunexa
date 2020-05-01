@@ -1,0 +1,15 @@
+.section {
+  margin-left: 100px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#message {
+  height: 200px;
+}
+
+.primary-btn {
+  float: right;
+  color: #FFF;
+  background-color: #d20f33;
+}

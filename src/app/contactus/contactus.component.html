@@ -1,0 +1,64 @@
+
+ <!-- HOME -->
+ <div id="home">
+    <!-- container -->
+    <div class="container">
+      <!-- home wrap -->
+      <div class="home-wrap">
+
+   <!-- section -->
+	<div class="section">
+      <!-- container -->
+      <div class="container">
+        <!-- row -->
+        <div class="row">
+          <form id="checkout-form" class="clearfix"
+          name="form"
+              (ngSubmit)="f.form.valid && onSubmit()"
+              #f="ngForm"
+              novalidate
+              >
+            <div class="col-md-6">
+              <div class="billing-details">
+
+                <div class="section-title">
+                  <h3 class="title">Send us something...</h3>
+                </div>
+                <div class="form-group">
+                  <input [(ngModel)]="contactus.name" name="name" #name="ngModel" class="input" type="text"  placeholder="Full Name" required>
+                </div>
+
+                <div class="form-group">
+                  <input [(ngModel)]="contactus.email" name="email" #email="ngModel" class="input" type="email"  placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                  <input  [(ngModel)]="contactus.address" name="address" #address="ngModel" class="input" type="text"  placeholder="Address" required>
+                </div>
+
+                <div class="form-group">
+                  <input [(ngModel)]="contactus.tel" name="tel" #tel="ngModel" class="input" type="tel"  placeholder="Telephone" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" [(ngModel)]="contactus.message" name="message" #message="ngModel"  type="text" class="input" placeholder="Write something..." required>
+                      </textarea>
+                  </div>
+                  <button type="submit" class="primary-btn">Submit</button>
+              </div>
+            </div>
+
+
+
+          </form>
+        </div>
+        <!-- /row -->
+      </div>
+      <!-- /container -->
+    </div>
+    <!-- /section -->
+
+      </div>
+      <!-- /home wrap -->
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /HOME -->

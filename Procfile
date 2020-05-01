@@ -1,0 +1,1 @@
+web: java $JAVA_OPTS -jar target/SpringBootJwtTunexa-0.0.1.jar --port $PORT

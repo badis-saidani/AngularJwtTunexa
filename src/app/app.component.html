@@ -1,0 +1,279 @@
+
+<notifier-container></notifier-container>
+    <app-admin *ngIf="authority === 'admin'" [authority]='admin'></app-admin>
+
+    <div *ngIf="!authority">
+      
+  <!-- HEADER -->
+  <header>
+    <!-- top Header -->
+    <div id="top-header">
+      <div class="container">
+        <div class="pull-left">
+          <span>Welcome to TUNEXA!</span>
+        </div>
+
+      </div>
+    </div>
+    <!-- /top Header -->
+
+  </header>
+  <!-- /HEADER -->
+
+
+     <!-- header -->
+     <div id="header">
+        <div class="container">
+          <div class="pull-left">
+            <!-- Logo -->
+            <div class="header-logo">
+              <a class="logo" href="#">
+                <img src="assets/img/logo.png" alt="">
+              </a>
+            </div>
+            <!-- /Logo -->
+
+
+          </div>
+
+          <!-- Logo 2 -->
+          <div  class="header-logo">
+            <a class="logo" href="#">
+              <!-- <img  id="central" src="assets/img/logo2.png" alt=""> -->
+            </a>
+          </div>
+          <!-- /Logo -->
+
+
+
+              <!-- Mobile nav toggle-->
+              <ul>
+              <li class="nav-toggle">
+                <button class="nav-toggle-btn main-btn icon-btn" (click)="openNavBar()"><i class="fa fa-bars"></i></button>
+              </li>
+              <!-- / Mobile nav toggle -->
+            </ul>
+          </div>
+        </div>
+        <!-- header -->
+
+      <!-- container -->
+
+
+    <!-- NAVIGATION -->
+    <div id="navigation" [ngClass]="{'shadow': isTrue}">
+      <!-- container -->
+      <div class="container">
+        <div id="responsive-nav" [ngClass]="{'open': isTrue}">
+          <!-- category nav -->
+          <div class="category-nav">
+            <span class="category-header" (click)="closeNavBar()">Categories <i class="fa fa-list"></i></span>
+            <ul class="category-list open">
+
+
+              <li *ngFor="let cat of categories" class="displayed" >
+                  <a [routerLink]="['/products', cat.id]"  class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                      <span><i class="fa fa-cube"></i></span> {{cat.name}} <i class="fa fa-angle-right"></i></a>
+
+                </li>
+              <li><a [routerLink]="['/products', '']">Autres</a></li>
+            </ul>
+          </div>
+          <!-- /category nav -->
+
+          <!-- menu nav -->
+          <div class="menu-nav">
+            <span class="menu-header" (click)="closeNavBar()">Menu <i class="fa fa-bars"></i></span>
+            <ul class="menu-list open">
+              <li><a routerLink="/home">Home</a></li>
+              <li><a routerLink="/aboutus">About Us</a></li>
+              <li><a [routerLink]="['/products', '']">Products</a></li>
+              <li><a routerLink="/contactus">Contact Us</a></li>
+
+
+            </ul>
+          </div>
+          <!-- menu nav -->
+        </div>
+      </div>
+      <!-- /container -->
+    </div>
+    <!-- /NAVIGATION -->
+
+    <!-- CONTENT -->
+
+    <router-outlet></router-outlet>
+
+    <!-- /CONTENT  -->
+
+    <!-- section -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+          <!-- row -->
+          <div class="row">
+            <!-- banner -->
+            <div class="col-md-4 col-sm-6">
+              <a routerLink="/aboutus" class="banner banner-1" href="#">
+                <img src="assets/img/banner100.jpg" alt="">
+                <div class="banner-caption text-center">
+                  <h2 class="white-color">ABOUT US</h2>
+                </div>
+              </a>
+            </div>
+            <!-- /banner -->
+
+            <!-- banner -->
+            <div class="col-md-4 col-sm-6">
+              <a routerLink="/products" class="banner banner-1" href="#">
+                <img src="assets/img/ban.gif" alt="">
+                <div class="banner-caption text-center">
+                  <h2 class="white-color">OUR PRODUCTS</h2>
+                </div>
+              </a>
+            </div>
+            <!-- /banner -->
+
+            <!-- banner -->
+            <div class="col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3">
+              <a routerLink="/contactus" class="banner banner-1" href="#">
+                <img src="assets/img/bann1222.jpg" alt="">
+                <div class="banner-caption text-center">
+                  <h2 class="white-color">CONTACT US</h2>
+                </div>
+              </a>
+            </div>
+            <!-- /banner -->
+
+          </div>
+          <!-- /row -->
+        </div>
+        <!-- /container -->
+      </div>
+      <!-- /section -->
+
+
+  <!-- FOOTER -->
+  <footer id="footer" class="section section-grey">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row">
+        <!-- footer widget -->
+        <div class="col-md-3 col-sm-6 col-xs-6">
+          <div class="footer">
+            <!-- footer logo -->
+            <div class="footer-logo">
+              <a class="logo" href="#">
+                <img src="assets/img/logo.png" alt="">
+              </a>
+            </div>
+            <!-- /footer logo -->
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+
+            <!-- footer social -->
+            <ul class="footer-social">
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+              <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+            </ul>
+            <!-- /footer social -->
+          </div>
+        </div>
+        <!-- /footer widget -->
+
+        <!-- footer widget -->
+        <div class="col-md-3 col-sm-6 col-xs-6">
+          <div class="footer">
+            <h3 class="footer-header">My Account</h3>
+            <ul class="list-links">
+              <li><a href="#">My Account</a></li>
+              <li><a href="#">My Wishlist</a></li>
+              <li><a href="#">Compare</a></li>
+              <li><a href="#">Checkout</a></li>
+              <li><a href="#">Login</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- /footer widget -->
+
+        <div class="clearfix visible-sm visible-xs"></div>
+
+        <!-- footer widget -->
+        <div class="col-md-3 col-sm-6 col-xs-6">
+          <div class="footer">
+            <h3 class="footer-header">Customer Service</h3>
+            <ul class="list-links">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Shiping & Return</a></li>
+              <li><a href="#">Shiping Guide</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- /footer widget -->
+
+        <!-- footer subscribe -->
+        <div class="col-md-3 col-sm-6 col-xs-6">
+          <div class="footer">
+            <h3 class="footer-header">Stay Connected</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+            <form>
+              <div class="form-group">
+                <input class="input" placeholder="Enter Email Address">
+              </div>
+              <button class="primary-btn">Join Newslatter</button>
+            </form>
+          </div>
+        </div>
+        <!-- /footer subscribe -->
+      </div>
+      <!-- /row -->
+      <hr>
+      <!-- row -->
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+
+          <!-- footer copyright -->
+          <div class="footer-copyright">
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by <a href="https://www.linkedin.com/in/badis-saidani-405ab3127/" target="_blank">Badis SAIDANI</a>
+          </div>
+          <!-- /footer copyright -->
+        </div>
+      </div>
+      <a data-toggle="modal" data-target="#myModalLogo">Espace admin</a>
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+  </footer>
+
+     <!-- Modal -->
+ <div id="myModalLogo" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+          <h4 class="modal-title">Login</h4>
+        </div>
+        <div class="modal-body">
+
+
+          <section class="panel">
+              <app-login></app-login>
+          </section>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

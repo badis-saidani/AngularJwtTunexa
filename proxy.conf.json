@@ -1,0 +1,6 @@
+{
+   "/": {
+    "target": "https://tunexa.herokuapp.com",
+    "secure": true
+    }
+}

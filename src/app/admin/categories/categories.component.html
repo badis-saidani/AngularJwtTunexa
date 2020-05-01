@@ -1,0 +1,156 @@
+
+ <!-- HOME -->
+ <div id="home">
+    <!-- container -->
+    <div class="container">
+      <!-- home wrap -->
+      <div class="home-wrap">
+
+        <!-- start: page -->
+						<section class="panel">
+                <header class="panel-heading">
+
+                  <h2 class="panel-title">Categories</h2>
+                </header>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="mb-md">
+                        <button  class="addToTable" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add <i class="fa fa-plus"></i></button>
+                      </div>
+                      <br/>
+                    </div>
+                  </div>
+                  <table class="table table-bordered table-striped mb-none" id="datatable-editable">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let category of categories"  class="gradeX">
+                          <td>{{category.id}}</td>
+                          <td>{{category.name}}</td>
+                        <td class="actions">
+                            &nbsp;<a (click)="updateCategory(category)" data-toggle="modal" data-target="#myModal" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                            &nbsp; <a (click)="deleteCategory(category)" data-toggle="modal" data-target="#mydelete" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                      </tr>
+
+
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            <!-- end: page -->
+
+ <!-- Modal -->
+ <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+          <h4 class="modal-title">Category</h4>
+        </div>
+        <div class="modal-body">
+
+
+          <section class="panel">
+            <form
+              name="form"
+              (ngSubmit)="f.form.valid && onSubmit()"
+              #f="ngForm"
+              novalidate
+            >
+              <div class="panel-body">
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                    >Tilte <span class="required">*</span></label
+                  >
+                  <div class="col-sm-9">
+                    <input
+                      type="text"
+                      [(ngModel)]="category.name" name="name" #name="ngModel"
+                      class="form-control"
+                      placeholder="eg.: Refund request"
+                      required
+                    >
+                    <div *ngIf="f.submitted && name.invalid">
+                      <div class="required" *ngIf="name.errors.required">Title is required</div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+              <footer class="panel-footer">
+                  <div class="row">
+                    <div class="col-sm-9 col-sm-offset-3">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="reset" class="btn btn-default">Reset</button>
+                      <div *ngIf="f.submitted && isSaveFailed" class="alert alert-danger">
+                        Creation of category failed: {{errorMessage}}
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+            </form>
+          </section>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end modal -->
+
+  <!-- Modal -->
+<div id="mydelete" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Are you sure?</h4>
+        </div>
+        <div class="modal-body">
+          <!-- <p>Some text in the modal.</p> -->
+
+          <div class="panel-body">
+            <div class="modal-wrapper">
+              <div class="modal-text">
+                <p>Are you sure that you want to delete this row?</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <div class="row">
+            <div class="col-md-12 text-right">
+              <button (click)="comfirmDelete()" id="dialogConfirm" class="btn btn-primary">Confirm</button>
+              <button id="dialogCancel" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+      </div>
+      <!-- /home wrap -->
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /HOME -->

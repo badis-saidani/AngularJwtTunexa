@@ -1,0 +1,13 @@
+.container{
+  margin: 20px;
+}
+
+/* .product-body{
+  float: right;
+} */
+
+img {
+  margin-left: 60px;
+  width: 300px;
+  height: 300px;
+}
