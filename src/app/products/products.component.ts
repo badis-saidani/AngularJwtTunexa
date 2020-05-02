@@ -55,14 +55,14 @@ export class ProductsComponent implements OnInit {
       this.products$.subscribe(
         res => {
          this.products = res;
-         this.notifier.notify( 'success', 'data successfully loaded.' );
          this.notifier.hideOldest();
-        this.notifier.hideNewest();
+         this.notifier.notify( 'success', 'data successfully loaded.' );
+          this.notifier.hideNewest();
         },
         err => {
-        this.notifier.notify( 'error', 'Whoops, something went wrong while loading products.' );
-        this.notifier.hideOldest();
-        this.notifier.hideNewest();
+          this.notifier.hideOldest();
+          this.notifier.notify( 'error', 'Whoops, something went wrong while loading products.' );
+          this.notifier.hideNewest();
         }
       );
       
@@ -86,8 +86,8 @@ export class ProductsComponent implements OnInit {
           console.log(err);
           this.errorMessage = err.error.message;
           
-          this.notifier.notify('error','An error occurred while saving the devis');
           this.notifier.hideOldest();
+          this.notifier.notify('error','An error occurred while saving the devis');
           this.notifier.hideNewest();
         }
       );
@@ -110,8 +110,8 @@ export class ProductsComponent implements OnInit {
       },
       err => {
         console.log('Error occurred while downloading the list of products;');
-      this.notifier.notify( 'error', 'Whoops, something went wrong while loading products.' );
-      this.notifier.hideOldest();
+        this.notifier.hideOldest();
+        this.notifier.notify( 'error', 'Whoops, something went wrong while loading products.' );
         this.notifier.hideNewest();
         
     }

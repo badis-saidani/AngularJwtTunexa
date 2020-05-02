@@ -53,14 +53,14 @@ export class AppComponent implements OnInit {
     this.catService.getAllowedCategories().subscribe(
       res => {
         this.categories = res;
-        this.notifier.notify( 'success', 'data successfully loaded.' );
         this.notifier.hideOldest();
+        this.notifier.notify( 'success', 'data successfully loaded.' );
         this.notifier.hideNewest();
       },
       err => {
         console.log('Error occurred while downloading the list of categories;');
-        this.notifier.notify( 'error', 'Error occurred while downloading the list of categories.' );
         this.notifier.hideOldest();
+        this.notifier.notify( 'error', 'Error occurred while downloading the list of categories.' );
         this.notifier.hideNewest();
     }
     );
